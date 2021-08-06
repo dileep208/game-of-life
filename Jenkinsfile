@@ -12,14 +12,14 @@ pipeline {
         stages {
             stage('scm') {
                 steps {
-                    sh 'GIT URL is ${GIT_UR}'
+
                     git branch: "${params.BRANCH}", url: 'https://github.com/dileep208/game-of-life.git'
                 //input message: 'Continue to the next stage? ', submitter: 'dileepaws, dileepazure'
                 }
             }
             stage('build') {
                 steps {
-                    echo env.GIT_URL
+                
                     sh " mvn ${params.MAVEN_GOAL} "
                 }
             }
