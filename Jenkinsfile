@@ -9,12 +9,12 @@ pipeline {
         string (name: 'BRANCH', defaultValue: 'master', description: 'Branch to build')
         choice(name: 'MAVEN_GOAL', choices: ['package', 'install', 'clean package'], description: 'Pick something')
     }
-    environments {
+    environment {
         CI_ENV = 'DEV'
     }
         stages {
             stage('scm') {
-                environments {
+                environment {
                     DUMMY = 'FUN'
                 }
                 steps {
