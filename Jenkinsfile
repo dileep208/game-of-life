@@ -27,8 +27,9 @@ pipeline {
             }
             stage('build') {
                 steps {
-                
-                    sh " mvn ${params.MAVEN_GOAL} "
+                    timeout(time: 10, unit: 'MINUTES'){
+                        sh " mvn ${params.MAVEN_GOAL} "
+                    }
                 }
             }
         }
