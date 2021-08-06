@@ -46,5 +46,15 @@ pipeline {
             failure{
                 mail subject: 'BUILD is failed'+env.BUILD_ID+'url is'+env.BUILD_URL, to: 'devops@dileep.com', from: 'jenkins@dileep.com', body: 'EMPTY BODY'
             }
+            always{
+                echo "Finished"
+            }
+            changed{
+                echo "changed"
+            }
+            unstable{
+                mail subject: 'BUILD is unstable'+env.BUILD_ID+'url is'+env.BUILD_URL, to: 'devops@dileep.com', from: 'jenkins@dileep.com', body: 'EMPTY BODY'
+            }
+
         }
 }
