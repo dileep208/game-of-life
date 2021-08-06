@@ -21,8 +21,8 @@ pipeline {
 
                     git branch: "${params.BRANCH}", url: 'https://github.com/dileep208/game-of-life.git'
                 //input message: 'Continue to the next stage? ', submitter: 'dileepaws, dileepazure'
-                echo env.CI_ENV
-                echo env.DUMMY
+                    echo env.CI_ENV
+                    echo env.DUMMY
                 }
             }
             stage('build') {
