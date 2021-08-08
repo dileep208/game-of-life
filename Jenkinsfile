@@ -34,7 +34,14 @@ pipeline {
                     timeout(time: 10, unit: 'MINUTES'){
                         sh " mvn ${params.MAVEN_GOAL} "
                     }
+                    stash include: '**/ganeoflife.war', name: 'golwar'
                 }
+            }
+            stage('deploy') {
+                agent {label 'RHEL,'}
+                    steps {
+                        unstash name: 'golwar'
+                    }
             }
         }
         post {
