@@ -34,7 +34,7 @@ pipeline {
                     timeout(time: 10, unit: 'MINUTES'){
                         sh " mvn ${params.MAVEN_GOAL} "
                     }
-                    stash include: '**/gameoflife.war', name: 'golwar'
+                    stash includes: '**/gameoflife.war', name: 'golwar'
                 }
             }
             stage('deploy') {
