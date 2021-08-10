@@ -34,14 +34,10 @@ pipeline {
                     withSonarQubeEnv('SONAR-8.9LTS') {
                         sh " mvn ${params.MAVEN_GOAL} "
                     }
-                    // stash includes: '**/gameoflife.war', name: 'golwar'
+                    
                 }
             }
-            // stage('deploy') {
-            //     agent {label 'RHEL,'}
-            //         steps {
-            //             unstash name: 'golwar'
-            //         }
+            
             }
             stage('SONAR ANALYSIS') {
                 steps {
