@@ -3,7 +3,7 @@ pipeline {
     agent { label 'GOL' }
     triggers {
         cron('H * * * *')
-        pollSCM('* * * * *')
+        // pollSCM('* * * * *')
     }
     parameters {
         string (name: 'BRANCH', defaultValue: 'master', description: 'Branch to build')
@@ -11,7 +11,7 @@ pipeline {
     }
     options {
         timeout(time: 1, unit: 'HOURS')
-        retry(2)
+        // retry(2)
     }
     environment {
         CI_ENV = 'DEV'
