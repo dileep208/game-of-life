@@ -1,6 +1,6 @@
 /* groovylint-disable-next-line CompileStatic */
 pipeline {
-    agent { label 'MASTER' }
+    agent { label 'GOL' }
     triggers {
         cron('H * * * *')
         // pollSCM('* * * * *')
