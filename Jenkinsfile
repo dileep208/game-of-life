@@ -32,7 +32,7 @@ pipeline {
             stage('build') {
                 steps {
 
-                        sh " mvn ${params.MAVEN_GOAL} "                    
+                        sh " mvn ${params.MAVEN_GOAL}  sonar:sonar"                    
                 }
             } 
             stage('SONAR ANALYSIS') {
