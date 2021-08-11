@@ -31,10 +31,8 @@ pipeline {
             }
             stage('build') {
                 steps {
-                    withSonarQubeEnv('SONAR-8.9LTS') {
-                        sh " mvn ${params.MAVEN_GOAL} "
-                    }
-                    
+
+                        sh " mvn ${params.MAVEN_GOAL} "                    
                 }
             } 
             stage('SONAR ANALYSIS') {
