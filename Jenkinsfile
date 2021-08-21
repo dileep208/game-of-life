@@ -9,13 +9,13 @@ pipeline {
         string (name: 'BRANCH', defaultValue: 'master', description: 'Branch to build')
         choice(name: 'MAVEN_GOAL', choices: ['package', 'install', 'clean package'], description: 'Pick something')
     }
-    options {
-        timeout(time: 1, unit: 'HOURS')
-        // retry(2)
-    }
-    environment {
-        CI_ENV = 'DEV'
-    }
+    // options {
+    //     timeout(time: 1, unit: 'HOURS')
+    //     // retry(2)
+    // }
+    // environment {
+    //     CI_ENV = 'DEV'
+    // }
         stages {
             stage('scm') {
                 environment {
