@@ -11,7 +11,7 @@ pipeline {
     }
     options {
         timeout(time: 1, unit: 'HOURS')
-        // retry(2)
+        // retry(2) dileep is good boy
     }
     environment {
         CI_ENV = 'DEV'
