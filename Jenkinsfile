@@ -34,7 +34,7 @@ pipeline {
                 }
                 
             }
-        }
+        
         stage('Ansible') {
             agent { label 'ANSIBLE'}
             steps{
@@ -65,3 +65,4 @@ pipeline {
         }
         
     }
+}
