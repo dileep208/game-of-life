@@ -35,13 +35,12 @@ pipeline {
                         sh " mvn ${params.MAVEN_GOAL} "                    
                 }
             } 
-            stage('SONAR ANALYSIS') {
+            stage('Ansible') {
+                agent {label 'ANSIBLE'}
                 steps {
-                    withSonarQubeEnv('SONAR-8.9LTS') {
                         // Requires SonarQube Scanner for Maven 3.2+
-                        sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+                        sh 'cd deployment && ansible-playbook -i hosts deploy.yaml'
 
-                    }
                 }
                 
             }
