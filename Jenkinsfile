@@ -35,7 +35,7 @@ pipeline {
                         sh " mvn ${params.MAVEN_GOAL} "
                     }
                 }
-            }
+            
             stage('Ansible'){
               agent {label 'ANSIBLE'}
                 steps {
