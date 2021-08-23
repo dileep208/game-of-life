@@ -23,7 +23,7 @@ pipeline {
             }
             steps {
                 mail subject: 'BUILD Started '+env.BUILD_ID, to: 'devops@qt.com', from: 'jenkins@qt.com', body: 'EMPTY BODY'
-                git branch: "${params.BRANCH}", url: 'https://github.com/asquarezone/game-of-life.git'
+                git branch: "${params.BRANCH}", url: 'https://github.com/dileep208/game-of-life.git'
                 //input message: 'Continue to next stage? ', submitter: 'qtaws,qtazure'
                 echo env.CI_ENV
                 echo env.DUMMY
