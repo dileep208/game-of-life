@@ -23,7 +23,7 @@ pipeline {
                     DUMMY = 'FUN'
                 }
                 steps {
-                    mail subject: 'BUILD is started'+env.BUILD_ID, to: 'devops@dileep.com', from: 'jenkins@dileep.com', body: 'EMPTY BODY'
+                    //mail subject: 'BUILD is started'+env.BUILD_ID, to: 'devops@dileep.com', from: 'jenkins@dileep.com', body: 'EMPTY BODY'
                     git branch: "${params.BRANCH}", url: 'https://github.com/dileep208/game-of-life.git'
                 //input message: 'Continue to the next stage? ', submitter: 'dileepaws, dileepazure'
                     echo env.CI_ENV
@@ -50,10 +50,11 @@ pipeline {
             success {
                 archive '**/gameoflife.war'
                 junit '**/TEST-*.xml'
-                mail subject: 'BUILD is sucessful'+env.BUILD_ID, to: 'devops@dileep.com', from: 'jenkins@dileep.com', body: 'EMPTY BODY'
+                //mail subject: 'BUILD is sucessful'+env.BUILD_ID, to: 'devops@dileep.com', from: 'jenkins@dileep.com', body: 'EMPTY BODY'
             }
             failure{
-                mail subject: 'BUILD is failed'+env.BUILD_ID+'url is'+env.BUILD_URL, to: 'devops@dileep.com', from: 'jenkins@dileep.com', body: 'EMPTY BODY'
+                 echo "changed"
+                //mail subject: 'BUILD is failed'+env.BUILD_ID+'url is'+env.BUILD_URL, to: 'devops@dileep.com', from: 'jenkins@dileep.com', body: 'EMPTY BODY'
             }
             always{
                 echo "Finished"
@@ -62,7 +63,8 @@ pipeline {
                 echo "changed"
             }
             unstable{
-                mail subject: 'BUILD is unstable'+env.BUILD_ID+'url is'+env.BUILD_URL, to: 'devops@dileep.com', from: 'jenkins@dileep.com', body: 'EMPTY BODY'
+                 echo "changed"
+                //mail subject: 'BUILD is unstable'+env.BUILD_ID+'url is'+env.BUILD_URL, to: 'devops@dileep.com', from: 'jenkins@dileep.com', body: 'EMPTY BODY'
             }
 
         }
