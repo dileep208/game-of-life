@@ -11,7 +11,7 @@ pipeline {
     }
     options {
         timeout(time: 1, unit: 'HOURS')
-        retry(2)
+        //retry(2)
     }
     environment {
         CI_ENV = 'DEV'
@@ -22,7 +22,7 @@ pipeline {
                 DUMMY = 'FUN'
             }
             steps {
-                mail subject: 'BUILD Started '+env.BUILD_ID, to: 'devops@qt.com', from: 'jenkins@qt.com', body: 'EMPTY BODY'
+                //mail subject: 'BUILD Started '+env.BUILD_ID, to: 'devops@qt.com', from: 'jenkins@qt.com', body: 'EMPTY BODY'
                 git branch: "${params.BRANCH}", url: 'https://github.com/dileep208/game-of-life.git'
                 //input message: 'Continue to next stage? ', submitter: 'qtaws,qtazure'
                 echo env.CI_ENV
@@ -32,7 +32,7 @@ pipeline {
         stage('build') {
             steps {
                 echo env.GIT_URL
-                timeout(time:10, unit: 'MINUTES') {
+                //timeout(time:10, unit: 'MINUTES') {
                     sh "mvn ${params.GOAL}"
                 }
                 
