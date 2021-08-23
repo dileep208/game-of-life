@@ -9,10 +9,7 @@ pipeline {
         string(name: 'BRANCH', defaultValue: 'master', description: 'Branch to build' )
         choice(name: 'GOAL', choices: ['package', 'clean package', 'install'], description: 'maven goals')
     }
-    options {
-        //timeout(time: 1, unit: 'HOURS')
-        //retry(2)
-    }
+
     environment {
         CI_ENV = 'DEV'
     }
@@ -44,8 +41,8 @@ pipeline {
                 // requires SonarQube Scanner for Maven 3.2+
                     sh 'cd deployment && ansible-playbook -i hosts deploy.yaml'
                 }
-            }
-        
+            
+        }
     }
     post {
         success {
@@ -68,3 +65,4 @@ pipeline {
         }
         
     }
+}
