@@ -1,5 +1,4 @@
 ---
-
 - name: Testing ansible
   hosts: all
   become: yes
