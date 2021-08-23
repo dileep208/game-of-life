@@ -10,7 +10,7 @@ pipeline {
         choice(name: 'GOAL', choices: ['package', 'clean package', 'install'], description: 'maven goals')
     }
     options {
-        timeout(time: 1, unit: 'HOURS')
+        //timeout(time: 1, unit: 'HOURS')
         //retry(2)
     }
     environment {
