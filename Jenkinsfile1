@@ -3,6 +3,7 @@ node{
         git 'https://github.com/dileep208/game-of-life.git'
     }
     stage('Compile-Package'){
-        sh 'mvn package'
+        def mvnHome = tool name: 'maven3', type: 'maven'
+        sh "${mvnHome}/bin/mvn package"
     }
 }
