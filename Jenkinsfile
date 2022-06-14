@@ -1,4 +1,4 @@
-node('any'){
+node{
     stage('SCM'){
         git 'https://github.com/dileep208/game-of-life.git'
     }
