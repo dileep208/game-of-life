@@ -1,8 +1,8 @@
-node{
-    stage('SCM'){
+node {
+    stage('SCM') {
         git 'https://github.com/dileep208/game-of-life.git'
     }
-    stage('BUILD'){
+    stage('BUILD') {
         sh 'mvn clean package'
     }
     stage('POST BUILD'){
