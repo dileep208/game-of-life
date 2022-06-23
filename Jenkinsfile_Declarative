@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage('SCM') {
+            steps {
+                git 'https://github.com/dileep208/game-of-life.git'
+            }
+        stage('BUILD') {
+            steps {
+                sh 'mvn clean package'
+            }
+
+        }
+    }
+    post {
+        success {
+            // This step should not normally be used in your script. Consult the inline help for details.
+            archive '**/*.war'
+            junit '**/TEST-*.xml'
+        }
+    }
+}

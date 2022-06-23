@@ -5,7 +5,7 @@ node {
     stage('BUILD') {
         sh 'mvn clean package'
     }
-    stage('POST BUILD'){
+    stage('POST BUILD') {
         junit '**/TEST-*.xml'
         archive '**/*.war'
     }
