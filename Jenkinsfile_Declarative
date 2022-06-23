@@ -5,6 +5,7 @@ pipeline {
             steps {
                 git 'https://github.com/dileep208/game-of-life.git'
             }
+        }
         stage('BUILD') {
             steps {
                 sh 'mvn clean package'
@@ -19,5 +20,4 @@ pipeline {
             junit '**/TEST-*.xml'
         }
     }
-}
 }
