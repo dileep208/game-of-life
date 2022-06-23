@@ -1,23 +1,29 @@
+// 
 pipeline {
     agent any
+    
+        tools {
+      maven 'maven'
+    }
+    
     stages {
-        stage('SCM') {
+        stage('Scm') {
             steps {
                 git 'https://github.com/dileep208/game-of-life.git'
             }
         }
-        stage('BUILD') {
+        stage('Build') {
             steps {
-                sh 'mvn clean package'
-            }
 
+                sh 'mvn package'
+            }
         }
     }
-    post {
-        success {
-            // This step should not normally be used in your script. Consult the inline help for details.
-            archive '**/*.war'
+    post { 
+        always { 
+            archiveArtifacts  '**/*.war'
             junit '**/TEST-*.xml'
         }
     }
 }
+
